@@ -3,7 +3,8 @@ package testgit;
 public class Main {
 	
 	public static void main(String[] args) {
-		System.out.println("s1");
+		System.out.println("s13");
+		System.out.println("s12");
 		
 	}
 	
