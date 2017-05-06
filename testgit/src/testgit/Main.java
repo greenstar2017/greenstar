@@ -10,4 +10,8 @@ public class Main {
 	public String toString() {
 		return "a";
 	}
+	
+	public String toString2() {
+		return "a";
+	}
 }
