@@ -14,4 +14,8 @@ public class Main {
 	public String toString2() {
 		return "a";
 	}
+	
+	public String toString3() {
+		return "a";
+	}
 }
