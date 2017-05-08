@@ -9,7 +9,7 @@ import java.lang.annotation.Target;
  */  
 @Target(ElementType.TYPE)  
 @Retention(RetentionPolicy.RUNTIME)  
-public @interface MapperClass{
+public @interface MapperClass{ 
     /** 
      *指定 MapperClass 
      */  
