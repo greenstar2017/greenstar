@@ -1,0 +1,1 @@
+#macro(CTX $_url)$!{rc.contextPath}$!{_url}#end

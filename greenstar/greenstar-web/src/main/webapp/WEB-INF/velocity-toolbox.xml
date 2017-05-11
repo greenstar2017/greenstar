@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<toolbox>
+	<tool>
+		<key>dateTool</key>
+		<scope>application</scope>
+		<class>org.apache.velocity.tools.generic.DateTool</class>
+	</tool>
+	<tool>
+		<key>alternatorTool</key>
+		<scope>application</scope>
+		<class>org.apache.velocity.tools.generic.AlternatorTool</class>
+	</tool>
+	<tool>
+		<key>classTool</key>
+		<scope>application</scope>
+		<class>org.apache.velocity.tools.generic.ClassTool</class>
+	</tool>
+	<tool>
+		<key>comparisonDateTool</key>
+		<scope>application</scope>
+		<class>org.apache.velocity.tools.generic.ComparisonDateTool</class>
+	</tool>
+	<tool>
+		<key>conversionTool</key>
+		<scope>application</scope>
+		<class>org.apache.velocity.tools.generic.ConversionTool</class>
+	</tool>
+	<tool>
+		<key>displayTool</key>
+		<scope>application</scope>
+		<class>org.apache.velocity.tools.generic.DisplayTool</class>
+	</tool>
+	<tool>
+		<key>escapeTool</key>
+		<scope>application</scope>
+		<class>org.apache.velocity.tools.generic.EscapeTool</class>
+	</tool>
+	<tool>
+		<key>fieldTool</key>
+		<scope>application</scope>
+		<class>org.apache.velocity.tools.generic.FieldTool</class>
+	</tool>
+	<tool>
+		<key>mathTool</key>
+		<scope>application</scope>
+		<class>org.apache.velocity.tools.generic.MathTool</class>
+	</tool>
+	<tool>
+		<key>numberTool</key>
+		<scope>application</scope>
+		<class>org.apache.velocity.tools.generic.NumberTool</class>
+	</tool>
+	<tool>
+		<key>resourceTool</key>
+		<scope>application</scope>
+		<class>org.apache.velocity.tools.generic.ResourceTool</class>
+	</tool>
+	<tool>
+		<key>sortTool</key>
+		<scope>application</scope>
+		<class>org.apache.velocity.tools.generic.SortTool</class>
+	</tool>
+	<tool>
+		<key>xmlTool</key>
+		<scope>application</scope>
+		<class>org.apache.velocity.tools.generic.XmlTool</class>
+	</tool>
+	<tool>
+		<key>contextTool</key>
+		<scope>request</scope>
+		<class>org.apache.velocity.tools.generic.ContextTool</class>
+	</tool>
+	<tool>
+		<key>loopTool</key>
+		<scope>request</scope>
+		<class>org.apache.velocity.tools.generic.LoopTool</class>
+	</tool>
+	<tool>
+		<key>renderTool</key>
+		<scope>request</scope>
+		<class>org.apache.velocity.tools.generic.RenderTool</class>
+	</tool>
+	<tool>
+		<key>versionTool</key>
+		<scope>request</scope>
+		<class>com.greenstar.velocity.VersionTool</class>
+	</tool>
+	<tool>
+		<key>commonTool</key>
+		<scope>request</scope>
+		<class>com.greenstar.velocity.CommonTool</class>
+	</tool>
+	<tool>
+		<key>enumTool</key>
+		<scope>request</scope>
+		<class>com.greenstar.velocity.EnumTool</class>
+	</tool>
+</toolbox>
+<!-- 
+
+<?xml version="1.0" encoding="UTF-8"?>
+<tools>
+	<data type="number" key="TOOLS_VERSION" value="2.0" />
+	<data type="boolean" key="GENERIC_TOOLS_AVAILABLE" value="true" />
+	<toolbox scope="application">
+		<tool class="org.apache.velocity.tools.generic.DateTool" />
+		<tool class="org.apache.velocity.tools.generic.AlternatorTool" />
+		<tool class="org.apache.velocity.tools.generic.ClassTool" />
+		<tool class="org.apache.velocity.tools.generic.ComparisonDateTool" />
+		<tool class="org.apache.velocity.tools.generic.ConversionTool" />
+		<tool class="org.apache.velocity.tools.generic.DisplayTool" />
+		<tool class="org.apache.velocity.tools.generic.EscapeTool" />
+		<tool class="org.apache.velocity.tools.generic.FieldTool" />
+		<tool class="org.apache.velocity.tools.generic.MathTool" />
+		<tool class="org.apache.velocity.tools.generic.NumberTool" />
+		<tool class="org.apache.velocity.tools.generic.ResourceTool" />
+		<tool class="org.apache.velocity.tools.generic.SortTool" />
+		<tool class="org.apache.velocity.tools.generic.XmlTool" />
+	</toolbox>
+	<toolbox scope="request">
+		<tool class="org.apache.velocity.tools.generic.ContextTool" />
+		<tool class="org.apache.velocity.tools.generic.LinkTool" />
+		<tool class="org.apache.velocity.tools.generic.LoopTool" />
+		<tool class="org.apache.velocity.tools.generic.RenderTool" />
+
+		版本控制
+		<tool class="com.greenstar.velocity.VersionTool" />
+		<tool class="com.greenstar.velocity.CommonTool" />
+		<tool class="com.greenstar.velocity.EnumTool" />
+	</toolbox>
+</tools> -->

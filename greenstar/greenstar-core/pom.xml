@@ -100,5 +100,16 @@
 			<version>3.3.7</version>
 		</dependency>
 		<!-- Mybatis管理 end -->
+		<!-- commons管理 start -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>${commons-lang3.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>${guava.version}</version>
+		</dependency>
 	</dependencies>
 </project>
