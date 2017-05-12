@@ -1,5 +1,7 @@
 package com.greenstar.dto;
 
+import java.util.HashMap;
+
 public class FlexiPageDto {
 
 	public static final Integer MAX_PAGE_SIZE = 3000;
@@ -74,6 +76,8 @@ public class FlexiPageDto {
 	private String sortOrder = "desc";
 
 	public static final String SORTORDER_ACS = "asc";
+	
+	private Object condition = new HashMap<String, Object>();
 
 	/**
 	 * 数据开始坐标，Mysql从0开始
@@ -167,6 +171,14 @@ public class FlexiPageDto {
 		}
 
 		return sql;
+	}
+
+	public Object getCondition() {
+		return condition;
+	}
+
+	public void setCondition(Object condition) {
+		this.condition = condition;
 	}
 
 }
