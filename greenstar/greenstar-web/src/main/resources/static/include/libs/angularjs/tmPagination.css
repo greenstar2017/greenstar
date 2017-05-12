@@ -1,0 +1,21 @@
+/* 分页 */
+@charset "utf-8";
+*{margin:0; padding:0;}
+.page ul,ol,li{border:0 none;margin:0;padding:0;font-weight:normal;font-family: "微软雅黑";color: #444;font-size:12px;margin:0 auto;}
+.page a{text-decoration:none; color:#444;blr:expression(this.onFocus=this.blur());outline: none;}
+.page ul,ol,li{list-style-type:none;}
+.page{text-align:center; margin-top:40px;}
+.page ul{display:inline-block;*display:inline; *zoom:1; }
+.page li{ float:left;}
+.page li + li { margin-left:5px; } 
+.page ul form{ float:left;}
+.page li span{ line-height:30px; padding-right:10px;}
+.page li a{ color:#333; display:block; padding:5px 10px; border:1px solid  #d2d2d2;}
+.page li a:hover{color:#fff;background:#009e38;}
+.page li.pre_page{ color:#bbb;}
+.page li.index_page{ background:#009e38;}
+.page li.index_page a{color:#fff;}
+.page li input[type=text]{width:25px; height:25px; text-align:center; border:1px solid  #d2d2d2;}
+.page li input[type=submit]{width:27px; height:27px; background:#d2d2d2; color:#666;}
+.page li a.disabled {cursor:not-allowed; background:#fff; color:#333}
+.page li.next_page{ margin-right:25px;}

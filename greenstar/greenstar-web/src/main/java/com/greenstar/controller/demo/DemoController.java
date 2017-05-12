@@ -24,6 +24,11 @@ public class DemoController extends BaseController{
 
 	@Autowired
 	private DemoService demoService;
+	
+	@RequestMapping("/list")
+	public String list() {
+		return "modules/demo/list";
+	}
 
 	@ResponseBody
 	@RequestMapping("/add")

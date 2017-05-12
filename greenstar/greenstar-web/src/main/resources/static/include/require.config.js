@@ -70,7 +70,7 @@ requirejs.config({
             exports:"angular-route"
         },
         'tmPagination':{
-        	deps: ['angular'],
+        	deps: ['css!libs/angularjs/tmPagination','angular'],
             exports:"tmPagination"
         },
         'uiBootstrap':{
