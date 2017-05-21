@@ -1,7 +1,9 @@
 package com.greenstar.controller.demo;
 
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,7 +13,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import tk.mybatis.mapper.entity.Example;
 
-import com.github.pagehelper.PageInfo;
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
 import com.greenstar.controller.common.BaseController;
 import com.greenstar.dto.FlexiPageDto;
 import com.greenstar.entity.Demo;
@@ -53,14 +56,19 @@ public class DemoController extends BaseController{
 		return RestObject.newOk("", demos, rowCount);
 	}
 	
+	@SuppressWarnings("unchecked")
 	@ResponseBody
 	@RequestMapping("/findMyPage")
 	public RestObject findMyPage(@RequestParam(value = "pageNumber", defaultValue = "1") int pageNumber,
 			@RequestParam(value = "pageSize", defaultValue = PAGE_SIZE) int pageSize) {
-		FlexiPageDto flexiPageDto = new FlexiPageDto(1, 2);
-		PageInfo<Demo> page = demoService.selectMyPage(flexiPageDto);
-//		int rowCount = demoService.findRowCount(example);
-		return RestObject.newOk("", page.getList(), page.getTotal());
+		Page<Demo> page = PageHelper.startPage(1, 2);
+		Map<String, Object> condition = new HashMap<String, Object>();
+//		condition.put("name", "123");
+		List<Demo> data = demoService.selectList(condition);
+		
+//		condition = new HashMap<String, Object>();
+//		data = demoService.selectList(condition);
+		return RestObject.newOk("", data, page.getTotal());
 	}
 	
 }

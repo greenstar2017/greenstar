@@ -10,12 +10,12 @@
 	<sql id="Base_Column_List">
 		id, name, create_time, update_time
 	</sql>
-	<select id="selectMyPage" parameterType="com.greenstar.dto.FlexiPageDto"
+	<select id="selectList" parameterType="map"
 		resultMap="BaseResultMap">
 		select
 		<include refid="Base_Column_List" />
 		from demo where 1=1
-		<if test="condition.name != null" >
+		<if test="name != null" >
 	       and name = #{name,jdbcType=VARCHAR}
 	    </if>
 	</select>

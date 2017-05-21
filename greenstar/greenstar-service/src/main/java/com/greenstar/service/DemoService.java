@@ -3,8 +3,9 @@
  */
 package com.greenstar.service;
 
-import com.github.pagehelper.PageInfo;
-import com.greenstar.dto.FlexiPageDto;
+import java.util.List;
+import java.util.Map;
+
 import com.greenstar.entity.Demo;
 
 
@@ -14,5 +15,5 @@ import com.greenstar.entity.Demo;
  */
 public interface DemoService extends BaseService<Demo>{
 
-	PageInfo<Demo> selectMyPage(FlexiPageDto pageHelper);
+	List<Demo> selectList(Map<String, Object> condition);
 }
