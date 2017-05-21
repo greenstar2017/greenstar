@@ -63,11 +63,7 @@ public class DemoController extends BaseController{
 			@RequestParam(value = "pageSize", defaultValue = PAGE_SIZE) int pageSize) {
 		Page<Demo> page = PageHelper.startPage(1, 2);
 		Map<String, Object> condition = new HashMap<String, Object>();
-//		condition.put("name", "123");
 		List<Demo> data = demoService.selectList(condition);
-		
-//		condition = new HashMap<String, Object>();
-//		data = demoService.selectList(condition);
 		return RestObject.newOk("", data, page.getTotal());
 	}
 	
