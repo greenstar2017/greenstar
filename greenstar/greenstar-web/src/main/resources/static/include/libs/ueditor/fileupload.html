@@ -1,0 +1,60 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>图片上传组件</title>
+<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta http-equiv="Cache-Control" content="no-store" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+<script type="text/javascript">
+	var CTX="";
+</script>
+<script src="/include/require.js" type="text/javascript"></script>
+<script src="/include/require.config.js" type="text/javascript"></script>
+<body>
+<div>
+	<div style="padding-top:10px;">文件上传组件测试</div>
+	<hr>
+		上传封面<input id="chooseBut" type="button" value="选择">
+		<br>
+		<img width="200px" id="img_dom"></img>
+		<br>
+		上传封面2<input id="chooseBut2" type="button" value="选择">
+		<br>
+		<div id="img_area"></div>
+		<img width="200px" id="img_dom2"></img>
+		
+		<form id="form1" enctype="multipart/form-data" action="/pssz/file/controller?action=uploadimage&encode=utf-8" method="post">
+		    <div>
+		    	<a id="addAttach" href="#">添加上传文件</a>
+			    <div id="files">
+				    <input type="file" name="f1"/>
+				    <input type="file" name="f2"/>
+			    </div>
+		   		<input type="submit" value="上传">
+		    </div>
+	    </form>
+</div>
+
+<script type="text/javascript">
+require(['bs','fileupload'],function(jQuery){
+	jQuery("#chooseBut").fileupload({multi:false,initTab:'upload',callback:function(res){
+		//console.log(res);
+		if(res){
+			jQuery("#img_dom").attr("src",CTX+res.src);
+		}
+	}});
+	jQuery("#chooseBut2").click(function(){
+		$.fn.fileupload.openChooseDiaglog({multi:true,initTab:'online',callback:function(rst){
+			var html=[];
+			jQuery.each(rst,function(item){
+				html.push('<img width="200px" src="'+CTX+this.src+'"></img>');
+			});
+			jQuery("#img_area").html(html.join(""));
+		}});
+	});
+})
+</script>
+</html>

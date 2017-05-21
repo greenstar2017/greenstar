@@ -1,0 +1,153 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.greenstar</groupId>
+		<artifactId>greenstar</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<artifactId>greenstar-web</artifactId>
+	<packaging>war</packaging>
+	<name>绿色之星WEB服务</name>
+	<description>绿色之星WEB服务</description>
+	<dependencies>
+		<dependency>
+			<groupId>com.greenstar</groupId>
+			<artifactId>greenstar-core</artifactId>
+			<version>${com.greenstar}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.greenstar</groupId>
+			<artifactId>greenstar-service</artifactId>
+			<version>${com.greenstar}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-tomcat</artifactId>
+			<version>${springboot.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-velocity</artifactId>
+			<version>${springboot.version}</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<pluginManagement>
+			<plugins>
+				<!-- compiler插件, 设定JDK版本 -->
+				<!-- <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-compiler-plugin</artifactId> 
+					<version>3.5</version> <configuration> <source>1.8</source> <target>1.8</target> 
+					<showWarnings>true</showWarnings> </configuration> </plugin> -->
+
+				<!-- war打包插件, 设定war包名称不带版本号 -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-war-plugin</artifactId>
+					<configuration>
+						<!-- <warName>${profiles.active}</warName> -->
+						<warName>web</warName>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+	<profiles>
+		<!-- 启动发布为集成环境 -->
+		<profile>
+			<id>production</id>
+			<properties>
+				<profiles.active>production</profiles.active>
+			</properties>
+			<build>
+				<plugins>
+					<!-- production集成环境(发布稳定) -->
+					<plugin>
+						<groupId>org.apache.tomcat.maven</groupId>
+						<artifactId>tomcat7-maven-plugin</artifactId>
+						<version>2.1</version>
+						<configuration>
+							<url>http://127.0.0.1:8080/manager/text</url>
+							<username>tomcat</username>
+							<password>tomcat</password>
+							<server>tomcat</server>
+							<update>true</update>
+							<path>/</path>
+							<port>38080</port>
+							<uriEncoding>UTF-8</uriEncoding>
+							<systemProperties>
+								<spring.profiles.active>production</spring.profiles.active>
+							</systemProperties>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<!-- 启动发布为开发环境 -->
+		<profile>
+			<id>development</id>
+			<properties>
+				<profiles.active>development</profiles.active>
+			</properties>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<build>
+				<plugins>
+					<!--development开发环境 -->
+					<plugin>
+						<groupId>org.apache.tomcat.maven</groupId>
+						<artifactId>tomcat7-maven-plugin</artifactId>
+						<version>2.1</version>
+						<configuration>
+							<url>http://127.0.0.1:8080/manager/text</url>
+							<username>tomcat</username>
+							<password>tomcat</password>
+							<server>tomcat</server>
+							<update>true</update>
+							<path>/</path>
+							<port>38080</port>
+							<uriEncoding>UTF-8</uriEncoding>
+							<systemProperties>
+								<spring.profiles.active>development</spring.profiles.active>
+							</systemProperties>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+
+		<!-- 启动发布为测试环境 -->
+		<profile>
+			<id>test</id>
+			<properties>
+				<profiles.active>test</profiles.active>
+			</properties>
+			<build>
+				<plugins>
+					<!--test 测试环境（测试专用） -->
+					<plugin>
+						<groupId>org.apache.tomcat.maven</groupId>
+						<artifactId>tomcat7-maven-plugin</artifactId>
+						<version>2.1</version>
+						<configuration>
+							<url>http://192.168.2.6:10005/manager/text</url>
+							<username>tomcat</username>
+							<password>tomcat</password>
+							<server>tomcat</server>
+							<update>true</update>
+							<path>/</path>
+							<port>38080</port>
+							<uriEncoding>UTF-8</uriEncoding>
+							<systemProperties>
+								<spring.profiles.active>test</spring.profiles.active>
+							</systemProperties>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+</project>
