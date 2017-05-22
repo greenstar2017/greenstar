@@ -6,9 +6,8 @@ import tk.mybatis.mapper.common.Mapper;
 import tk.mybatis.mapper.entity.Example;
 
 import com.greenstar.dto.FlexiPageDto;
-import com.greenstar.entity.BaseEntity;
 
-public interface MyBaseMapper<T extends BaseEntity> extends Mapper<T> {
+public interface MyBaseMapper<T> extends Mapper<T> {
 
 	/**
 	 * 根据Id查询实体

@@ -43,7 +43,7 @@ public interface BaseService<T> {
     /** 
      * 单表模糊查询 
      */  
-    public List<T> findByLike(Example example);  
+    public List<T> selectByExample(Example example);  
       
     /** 
      * 根据模糊分页查询 

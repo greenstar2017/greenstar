@@ -15,12 +15,11 @@ import tk.mybatis.mapper.entity.Example;
 
 import com.greenstar.annotation.MapperClass;
 import com.greenstar.dto.FlexiPageDto;
-import com.greenstar.entity.BaseEntity;
 import com.greenstar.service.BaseService;
   
 @Service
 @SuppressWarnings("unchecked")  
-public class BaseServiceImpl<T extends BaseEntity> implements BaseService<T> {  
+public class BaseServiceImpl<T> implements BaseService<T> {  
       
     @Resource  
     @Qualifier("sessionFactory")  
@@ -63,7 +62,7 @@ public class BaseServiceImpl<T extends BaseEntity> implements BaseService<T> {
     }  
   
     @Override  
-    public List<T> findByLike(Example example) {  
+    public List<T> selectByExample(Example example) {  
         return this.getMapper(example.getEntityClass()).selectByExample(example);  
     }  
   
