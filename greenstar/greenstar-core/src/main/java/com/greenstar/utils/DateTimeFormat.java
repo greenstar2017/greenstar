@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Vector;
 
-import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang.StringUtils;
 
 /**
  * 提供日期或者是时间格式化处理工具类. 采用String.format格式化时间,避免使用SimpleDateFormat.format出现多线程问题.

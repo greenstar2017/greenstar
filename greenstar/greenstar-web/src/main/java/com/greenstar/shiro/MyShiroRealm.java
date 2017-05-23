@@ -13,6 +13,7 @@ import org.apache.shiro.authc.AuthenticationToken;
 import org.apache.shiro.authc.LockedAccountException;
 import org.apache.shiro.authc.SimpleAuthenticationInfo;
 import org.apache.shiro.authc.UnknownAccountException;
+import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
@@ -60,18 +61,16 @@ public class MyShiroRealm extends AuthorizingRealm {
 	protected AuthenticationInfo doGetAuthenticationInfo(
 			AuthenticationToken token) throws AuthenticationException {
 		// 获取用户的输入的账号.
-		String username = (String) token.getPrincipal();
+		UsernamePasswordToken upToken = (UsernamePasswordToken)token;
+		String username = upToken.getUsername();
+		String pass = String.valueOf(upToken.getPassword());
 		User user = userService.selectByUsername(username);
 		if (user == null)
 			throw new UnknownAccountException();
 		if (0 == user.getEnable()) {
 			throw new LockedAccountException(); // 帐号锁定
 		}
-		SimpleAuthenticationInfo authenticationInfo = new SimpleAuthenticationInfo(
-				user, // 用户
-				user.getPassword(), // 密码
-				ByteSource.Util.bytes(username), getName() // realm name
-		);
+		SimpleAuthenticationInfo authenticationInfo = new SimpleAuthenticationInfo(user, user.getPassword(), username);
 		// 当验证都通过后，把用户信息放在session里
 		Session session = SecurityUtils.getSubject().getSession();
 		session.setAttribute("userSession", user);

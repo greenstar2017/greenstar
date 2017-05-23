@@ -36,6 +36,7 @@ public class ShiroService {
 		// 权限控制map.从数据库获取
 		Map<String, String> filterChainDefinitionMap = new LinkedHashMap<String, String>();
 		filterChainDefinitionMap.put("/logout", "logout");
+		filterChainDefinitionMap.put("/login", "anon");
 		filterChainDefinitionMap.put("/css/**", "anon");
 		filterChainDefinitionMap.put("/js/**", "anon");
 		filterChainDefinitionMap.put("/img/**", "anon");
