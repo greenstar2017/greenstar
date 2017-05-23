@@ -10,8 +10,6 @@ import java.util.Map;
 import org.apache.commons.beanutils.PropertyUtils;
 import org.apache.velocity.tools.config.DefaultKey;
 
-import com.google.common.collect.Maps;
-
 /***
  * 
  * @ClassName: EnumTool
@@ -22,7 +20,7 @@ import com.google.common.collect.Maps;
 @DefaultKey("enum")
 public class EnumTool
 {
-    private static Map<String, Object> MAP_ENUM = Maps.newHashMap();
+    private static Map<String, Object> MAP_ENUM = new HashMap<String, Object>();
 
 
     /**
